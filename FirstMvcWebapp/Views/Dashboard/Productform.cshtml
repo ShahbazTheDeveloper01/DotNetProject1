@@ -1,0 +1,53 @@
+﻿@using FirstMvcWebapp.Dto
+@model ProductDto
+
+<div>@ViewBag.ErrorMessage</div>
+<form class="container mt-5" style="max-width: 500px" asp-action="CreateProduct">
+
+    <h2 class="text-center mb-4">Add Product</h2>
+
+    <div class="mb-3">
+        <label for="productName" class="form-label">Product Name</label>
+        <input type="text"
+               id="productName"
+               name="productName"
+               asp-for="ProductName"
+               class="form-control"
+               placeholder="Enter product name">
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description"
+                  name="description"
+                  asp-for="Description"
+                  class="form-control"
+                  rows="4"
+                  placeholder="Enter product description"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number"
+               id="price"
+               name="price"
+               asp-for="Price"
+               class="form-control"
+               placeholder="Enter price">
+    </div>
+
+    <div class="mb-3">
+        <label for="color" class="form-label">Color</label>
+        <input type="text"
+               id="color"
+               name="color"
+               asp-for="color"
+               class="form-control"
+               placeholder="Enter color">
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">
+        Add Product
+    </button>
+
+</form>

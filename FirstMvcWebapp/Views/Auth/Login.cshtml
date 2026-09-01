@@ -1,0 +1,30 @@
+﻿@using FirstMvcWebapp.Dto
+@model UserDto
+
+<div>@ViewBag.SuccessMessagge</div>
+<div>@ViewBag.ErrorMessage</div>
+
+<form class="container mt-5" style="max-width: 400px;" asp-action="LoginUser">
+    <h2 class="text-center mb-4">Login</h2>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" asp-for="Email"  class="form-control" placeholder="Enter your email">
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" name="password" asp-for="Password" class="form-control" placeholder="Enter your password">
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">
+        Login
+    </button>
+</form>
+
+@*<a href="/Auth/Register" class="text-decoration-none">
+    New User? Register Here
+</a>*@
+New User?<a asp-action="Register" class="text-decoration-none">
+     Register Here
+</a>

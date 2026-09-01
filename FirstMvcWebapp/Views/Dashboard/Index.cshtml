@@ -1,0 +1,63 @@
+﻿@using FirstMvcWebapp.Dto
+@model List<ProductDto>
+
+<div class="container mt-5">
+
+    <!-- Dashboard Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Product Dashboard</h2>
+
+        <a class="btn btn-primary" asp-action="Productform">
+            + Add Product
+        </a>
+    </div>
+
+    <!-- Product Table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Color</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                
+                @if (Model.Count > 0)
+                {
+
+                    foreach (var product in Model)
+                    {
+                        <tr>
+                            <td>@product.ProductName</td>
+                            <td>@product.Description</td>
+                            <td>$@product.Price</td>
+                            <td>@product.color</td>
+                            <td>
+                                <a asp-action="UpdateProductForm" asp-route-id="@product.Id" class="btn btn-warning btn-sm">
+                                    Edit
+                                </a>
+
+                                <a asp-action="DeleteProduct" asp-route-productid="@product.Id" class="btn btn-danger btn-sm">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                   <tr>No products are available</tr>
+                }
+                
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
